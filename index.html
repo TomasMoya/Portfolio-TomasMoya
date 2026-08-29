@@ -474,6 +474,9 @@
     <div class="hero-contact">
       <div class="email-row">
         <span class="email-text mono" id="emailText">tomasmoya5906@gmail.com</span>
+        <a class="icon-btn" href="mailto:tomasmoya5906@gmail.com" title="Enviar email" aria-label="Enviar email">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </a>
         <button class="icon-btn" id="emailCopy" title="Copiar email" aria-label="Copiar email">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
         </button>
@@ -734,6 +737,9 @@
       <div class="hero-contact" style="max-width:480px; margin-left:auto; margin-right:auto;">
         <div class="email-row">
           <span class="email-text mono" id="emailText2">tomasmoya5906@gmail.com</span>
+          <a class="icon-btn" href="mailto:tomasmoya5906@gmail.com" title="Enviar email" aria-label="Enviar email">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          </a>
           <button class="icon-btn" id="emailCopy2" title="Copiar email" aria-label="Copiar email">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
           </button>
@@ -806,7 +812,16 @@
   }
 
   if (reduced) {
-    finish();
+    // still show the boot screen, but statically (no line-by-line animation)
+    lines.forEach(function(line, i){
+      var el = document.createElement('div');
+      el.className = 'boot-line show';
+      el.innerHTML = line.html;
+      log.appendChild(el);
+    });
+    fill.style.width = '100%';
+    pct.textContent = '100%';
+    showEnterButton();
   } else {
     var t = 0;
     lines.forEach(function(line, i){
